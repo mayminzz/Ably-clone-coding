@@ -8,19 +8,15 @@ const prevBtn = document.querySelector(".prev_btn");
 const nextBtn = document.querySelector(".next_btn");
 
 const moveSlide = (num) => {
-  slides.style.marginLeft = `${-num * 600}px`;
+  slides.style.transform = `translateX(${-num * 100}%)`;
   currentIdx = num;
-  console.log(currentIdx, slideCount);
 
   if (currentIdx === slideCount || currentIdx === -slideCount) {
     setTimeout(() => {
       slides.classList.remove("animated");
-      slides.style.marginLeft = "0px";
+      slides.style.transform = "translateX(0)";
       currentIdx = 0;
     }, 500);
-    setTimeout(() => {
-      slides.classList.add("animated");
-    }, 600);
   }
 };
 
